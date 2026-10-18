@@ -1,0 +1,49 @@
+name: Refresh asset cache versions
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-asset-versions:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Update asset version query strings
+        env:
+          VERSION: ${{ github.sha }}
+        run: |
+          python - <<'PY'
+          import os, re
+          from pathlib import Path
+          path = Path("index.html")
+          html = path.read_text(encoding="utf-8")
+          version = os.environ["VERSION"][:12]
+          for asset in ("style.css", "data.js", "script.js"):
+              pattern = r'((?:href|src)=")' + re.escape(asset) + r'(?:\?v=[^"]*)?(")'
+              html, count = re.subn(pattern, lambda m: m.group(1) + asset + "?v=" + version + m.group(2), html)
+              if count == 0:
+                  raise SystemExit(f"Could not find reference for {asset} in index.html")
+          path.write_text(html, encoding="utf-8")
+          PY
+
+      - name: Commit updated versions
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "Asset versions are already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "chore: refresh asset cache versions [skip ci]"
+          git push origin main
