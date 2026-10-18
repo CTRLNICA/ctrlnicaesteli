@@ -84,7 +84,7 @@ window.LINKME_DATA = {
     },
     {
       "id": 9,
-      "name": "Mantenimiento PS4 / PS4 Slim (sin lector)",
+      "name": "Mantenimiento PS4 / PS4 Slim (con lector)",
       "category": "Mantenimiento",
       "price": 25,
       "description": "Mantenimiento de PS4 Fat y Slim \nCambio de pasta termica y termaal pads\n!!incluye Mantenimiento del lector!!",
