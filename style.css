@@ -9,24 +9,3 @@
 
 /* La foto de perfil reemplaza el icono de flecha de la marca */
 .brand-icon-photo{overflow:hidden;padding:0;background:transparent;border:1px solid rgba(183,243,107,.45)}.brand-icon-photo img{display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit}
-
-
-/* Publicación destacada de consola */
-.featured-post-section{margin:0 0 64px}
-.featured-post{position:relative;overflow:hidden;padding:clamp(20px,4vw,34px);border:1px solid rgba(183,243,107,.22);border-radius:24px;background:linear-gradient(135deg,rgba(183,243,107,.075),transparent 48%),var(--panel);box-shadow:0 18px 55px rgba(0,0,0,.18)}
-.featured-post-top{display:flex;align-items:center;gap:16px;margin-bottom:22px}
-.featured-post-mark{width:58px;height:58px;flex:0 0 58px;display:grid;place-items:center;border-radius:17px;background:rgba(183,243,107,.12);font-size:28px}
-.featured-post-label{margin:0 0 5px;color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.featured-post-top h3{margin:0;font:700 clamp(19px,3vw,26px) "Space Grotesk",sans-serif}
-.featured-post-subtitle{margin:5px 0 0;color:var(--muted);font-size:14px}
-.featured-post-price{margin-left:auto;white-space:nowrap;color:var(--accent);font:700 clamp(22px,3.5vw,32px) "Space Grotesk",sans-serif}
-.featured-post-features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 22px;margin:0;padding:20px 0 18px;border-top:1px solid var(--line);list-style:none}
-.featured-post-features li{position:relative;padding-left:24px;color:var(--text);font-size:14px}
-.featured-post-features li:before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:800}
-.featured-post-ready{margin:0 0 20px;font-weight:700}
-.featured-post-details{padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.035)}
-.featured-post-details p{margin:7px 0;color:var(--muted);font-size:13px;line-height:1.55}
-.featured-post-details strong{color:var(--text)}
-.featured-post-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:22px}
-.featured-post-actions .text-link{margin:0}
-@media(max-width:600px){.featured-post-section{margin-bottom:44px}.featured-post-top{align-items:flex-start;gap:12px;flex-wrap:wrap}.featured-post-mark{width:46px;height:46px;flex-basis:46px;font-size:23px}.featured-post-top>div:nth-child(2){flex:1;min-width:150px}.featured-post-price{width:100%;margin:4px 0 0 58px}.featured-post-features{grid-template-columns:1fr;gap:12px}.featured-post-actions{align-items:stretch;flex-direction:column;gap:14px}.featured-post-actions .btn{text-align:center;justify-content:center}}
